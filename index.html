@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save the Date | Nuestra boda</title>
+
+  <!-- Tipografías elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --marfil: #f8f5f0;
+      --beige: #e8ddd0;
+      --dorado: #b69a62;
+      --dorado-claro: #d8c49b;
+      --texto: #64574d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: var(--beige);
+      color: var(--texto);
+    }
+
+    .invitacion {
+      width: 100%;
+      max-width: 390px;
+      min-height: 700px;
+      padding: 35px 24px;
+      text-align: center;
+      background: var(--marfil);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 45px #78644b20;
+      animation: aparecer 1.2s ease;
+    }
+
+    /* Detalles dorados */
+    .invitacion::before,
+    .invitacion::after {
+      content: "✧";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--dorado);
+      font-size: 17px;
+    }
+
+    .invitacion::before {
+      top: 12px;
+    }
+
+    .invitacion::after {
+      bottom: 12px;
+    }
+
+    .subtitulo {
+      margin-top: 7px;
+      margin-bottom: 7px;
+      color: var(--dorado);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .titulo {
+      margin-bottom: 22px;
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      font-size: clamp(42px, 12vw, 53px);
+      color: #948274;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    /* Carrusel de fotografías */
+    .carrusel {
+      width: 100%;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto 25px;
+      background: #e4d9cb;
+      border-radius: 50% 50% 2px 2px / 37% 37% 2px 2px;
+      border: 1px solid #d7c39b;
+    }
+
+    .foto {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.2s ease, transform 4.5s ease;
+    }
+
+    .foto.activa {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .nombres {
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      font-size: clamp(35px, 10vw, 44px);
+      color: #504841;
+      line-height: 1.3;
+    }
+
+    .fecha {
+      margin-top: 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 21px;
+      font-style: italic;
+      letter-spacing: 4px;
+      color: #a99a89;
+    }
+
+    .separador {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 17px 0;
+      color: var(--dorado);
+      font-size: 17px;
+    }
+
+    .separador::before,
+    .separador::after {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: var(--dorado-claro);
+    }
+
+    .mensaje {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      font-size: 16px;
+      font-style: italic;
+      letter-spacing: 2px;
+      color: #827267;
+    }
+
+    .frase {
+      margin-top: 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 14px;
+      font-style: italic;
+      color: #a69a8e;
+    }
+
+    .indicadores {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -13px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .punto {
+      width: 6px;
+      height: 6px;
+      border: none;
+      border-radius: 50%;
+      background: #d6c8b4;
+      cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+
+    .punto.activo {
+      background: var(--dorado);
+      transform: scale(1.3);
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .invitacion {
+        padding: 30px 18px;
+      }
+
+      .carrusel {
+        height: 310px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="invitacion">
+
+    <p class="subtitulo">Nuestra historia de amor</p>
+
+    <h1 class="titulo">Save the Date</h1>
+
+    <section class="carrusel" aria-label="Fotografías de los novios">
+      <!-- Coloca foto1.jpg y foto2.jpg junto a index.html -->
+      <img src="WhatsApp Image 2026-11-11 at 07.37.42 (1).jpeg" class="foto activa"
+           alt="Primera fotografía de los novios">
+
+      <img src="WhatsApp Image 2026-11-11 at 07.37.42.jpeg" class="foto"
+           alt="Segunda fotografía de los novios">
+    </section>
+
+    <div class="indicadores">
+      <button class="punto activo" aria-label="Primera foto"></button>
+      <button class="punto" aria-label="Segunda foto"></button>
+    </div>
+
+    <h2 class="nombres">Efrain &amp; Mishel</h2>
+
+    <p class="fecha">05 · 12 · 26</p>
+
+    <div class="separador">♡</div>
+
+    <p class="mensaje">Pronto más detalles...</p>
+
+    <p class="frase">
+      Un día especial, una historia para siempre.
+    </p>
+
+  </main>
+
+  <script>
+    const fotos = document.querySelectorAll(".foto");
+    const puntos = document.querySelectorAll(".punto");
+
+    let indice = 0;
+    let temporizador;
+
+    function mostrarFoto(nuevoIndice) {
+      indice = (nuevoIndice + fotos.length) % fotos.length;
+
+      fotos.forEach((foto, i) => {
+        foto.classList.toggle("activa", i === indice);
+      });
+
+      puntos.forEach((punto, i) => {
+        punto.classList.toggle("activo", i === indice);
+      });
+    }
+
+    function iniciarCarrusel() {
+      clearInterval(temporizador);
+
+      temporizador = setInterval(() => {
+        mostrarFoto(indice + 1);
+      }, 4000);
+    }
+
+    puntos.forEach((punto, i) => {
+      punto.addEventListener("click", () => {
+        mostrarFoto(i);
+        iniciarCarrusel();
+      });
+    });
+
+    iniciarCarrusel();
+  </script>
+
+</body>
+</html>
