@@ -1,16 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Save the Date | Nuestra boda</title>
-
   <!-- Tipografías elegantes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --marfil: #f8f5f0;
@@ -88,16 +85,17 @@
       white-space: nowrap;
     }
 
-    /* Carrusel de fotografías */
+    /* Carrusel de fotografías (Corregido para móviles) */
     .carrusel {
       width: 100%;
-      height: 350px;
+      height: 330px;
       position: relative;
       overflow: hidden;
       margin: 0 auto 25px;
       background: #e4d9cb;
-      border-radius: 50% 50% 2px 2px / 37% 37% 2px 2px;
+      border-radius: 180px 180px 4px 4px;
       border: 1px solid #d7c39b;
+      transform: translateZ(0);
     }
 
     .foto {
@@ -209,7 +207,6 @@
       .invitacion {
         padding: 30px 18px;
       }
-
       .carrusel {
         height: 310px;
       }
@@ -223,43 +220,24 @@
     }
   </style>
 </head>
-
 <body>
-
   <main class="invitacion">
-
     <p class="subtitulo">Nuestra historia de amor</p>
-
     <h1 class="titulo">Save the Date</h1>
-
     <section class="carrusel" aria-label="Fotografías de los novios">
-      <!-- Coloca foto1.jpg y foto2.jpg junto a index.html -->
-      <img src="WhatsApp Image 2026-11-11 at 07.37.42 (1).jpeg" class="foto activa"
-           alt="Primera fotografía de los novios">
-
-      <img src="WhatsApp Image 2026-11-11 at 07.37.42.jpeg" class="foto"
-           alt="Segunda fotografía de los novios">
+      <img src="WhatsApp Image 2026-11-11 at 07.37.42 (1).jpeg" class="foto activa" alt="Primera fotografía de los novios">
+      <img src="WhatsApp Image 2026-11-11 at 07.37.42.jpeg" class="foto" alt="Segunda fotografía de los novios">
     </section>
-
     <div class="indicadores">
       <button class="punto activo" aria-label="Primera foto"></button>
       <button class="punto" aria-label="Segunda foto"></button>
     </div>
-
     <h2 class="nombres">Efrain &amp; Mishel</h2>
-
     <p class="fecha">05 · 12 · 26</p>
-
     <div class="separador">♡</div>
-
     <p class="mensaje">Pronto más detalles...</p>
-
-    <p class="frase">
-      Un día especial, una historia para siempre.
-    </p>
-
+    <p class="frase">Un día especial, una historia para siempre.</p>
   </main>
-
   <script>
     const fotos = document.querySelectorAll(".foto");
     const puntos = document.querySelectorAll(".punto");
@@ -281,7 +259,6 @@
 
     function iniciarCarrusel() {
       clearInterval(temporizador);
-
       temporizador = setInterval(() => {
         mostrarFoto(indice + 1);
       }, 4000);
@@ -296,6 +273,5 @@
 
     iniciarCarrusel();
   </script>
-
 </body>
 </html>
